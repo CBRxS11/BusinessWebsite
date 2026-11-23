@@ -296,6 +296,53 @@
 }
 
 /* =========================
+   MOBILE MENU TABLE SCROLL
+   ========================= */
+
+@media (max-width: 600px) {
+
+    /* Prevent the menu layout from expanding beyond the phone screen */
+    .menu-grid,
+    .menu-column {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Keep the remaining column properly sized after filtering */
+    .menu-grid.single-column .menu-column {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        margin: 0;
+    }
+
+    /* Make each category independently horizontally scrollable */
+    .menu-category {
+        display: block;
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        box-sizing: border-box;
+
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-x: contain;
+        touch-action: pan-x pan-y;
+    }
+
+    /* Preserve the table's width so it can scroll inside its container */
+    .menu-table {
+        width: max-content;
+        min-width: 400px;
+        max-width: none;
+    }
+}
+
+/* =========================
    RESPONSIVE - PRODUCTS ONLY
    ========================= */
 
